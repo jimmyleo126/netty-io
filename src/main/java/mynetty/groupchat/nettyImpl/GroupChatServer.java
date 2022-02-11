@@ -42,7 +42,7 @@ public class GroupChatServer {
                         // 向pipeline加入编码器
                         pipeline.addLast("encoder", new StringEncoder());
                         // 加入自己的业务处理器
-                        pipeline.addLast(null);
+                        pipeline.addLast(new GroupChatServerHandler());
                     }
                 });
 
@@ -56,4 +56,5 @@ public class GroupChatServer {
     public static void main(String[] args) {
         new GroupChatServer(7878);
     }
+
 }
