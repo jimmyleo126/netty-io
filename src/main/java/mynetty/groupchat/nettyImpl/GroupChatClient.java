@@ -37,7 +37,7 @@ public class GroupChatClient {
                             // 向pipeline加入编码器
                             pipeline.addLast("encoder", new StringEncoder());
                             // 加入自定义handler
-                            pipeline.addLast(null);
+                            pipeline.addLast(new GroupChatClientHandler());
                         }
                     });
             ChannelFuture channelFuture = bootstrap.connect(host, port).sync();
@@ -57,7 +57,7 @@ public class GroupChatClient {
 
     }
 
-    public static void main(String[] args) {
-        new GroupChatClient("127.0.0.1", 7878);
+    public static void main(String[] args) throws InterruptedException {
+        new GroupChatClient("127.0.0.1", 7878).run();
     }
 }

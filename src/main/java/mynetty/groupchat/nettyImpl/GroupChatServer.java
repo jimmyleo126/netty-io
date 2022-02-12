@@ -1,6 +1,5 @@
 package mynetty.groupchat.nettyImpl;
 
-import com.sun.org.apache.xpath.internal.operations.String;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -53,8 +52,8 @@ public class GroupChatServer {
 
     }
 
-    public static void main(String[] args) {
-        new GroupChatServer(7878);
+    public static void main(String[] args) throws InterruptedException {
+        new GroupChatServer(7878).run();
     }
 
 }
